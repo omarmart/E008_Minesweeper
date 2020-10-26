@@ -7,4 +7,12 @@ public class Cell {
     public void click() {
 
     }
+
+    public char getDisplay() {
+        return display;
+    }
+
+    public Status getState() {
+        return state;
+    }
 }
