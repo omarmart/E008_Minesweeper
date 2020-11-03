@@ -5,7 +5,7 @@ public class Cell {
     private boolean mined = false;
 
     public void click() {
-
+        state = Status.UNCOVERED;
     }
 
     public Status getState() {
