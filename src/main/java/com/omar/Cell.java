@@ -15,4 +15,12 @@ public class Cell {
     public Status getState() {
         return state;
     }
+
+    public boolean isMined() {
+        return mined;
+    }
+
+    public void setMined(boolean mined) {
+        this.mined = mined;
+    }
 }
