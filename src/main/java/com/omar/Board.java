@@ -1,5 +1,7 @@
 package com.omar;
 
+import java.util.Random;
+
 public class Board {
     private final int width;
     private final int height;
@@ -15,8 +17,13 @@ public class Board {
      * Fills the board with the specified number of mines in random positions
      * @param mines the number of mines that the board will contain
      */
-    private static void fill(int mines) {
-        //TODO
+    private void setMines(int mines) {
+        Random random = new Random();
+        for (int i = 0; i < mines; i++) {
+            int x = random.nextInt(width);
+            int y = random.nextInt(height);
+            field[x][y].setMined(true);
+        }
     }
 
     public int getWidth() {
