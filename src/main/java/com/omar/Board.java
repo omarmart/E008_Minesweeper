@@ -31,6 +31,10 @@ public class Board {
         this.field[x][y].click();
     }
 
+    public void flagCell(int x, int y) {
+        this.field[x][y].flag();
+    }
+
     public Cell getCell(int x, int y) {
         return this.field[x][y];
     }
