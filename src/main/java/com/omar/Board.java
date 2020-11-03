@@ -29,21 +29,9 @@ public class Board {
 
     public void clickCell(int x, int y, Cell c) {
         this.field[x][y].click();
-        draw();
     }
 
     public Cell getCell(int x, int y) {
         return this.field[x][y];
-    }
-
-    /**
-     * Draws the board on the screen
-     */
-    public void draw() {
-        for (int i = 0; i < width; i++) {
-            for (int j = 0; j < height; j++) {
-                System.out.println(this.field[i][j].getDisplay());
-            }
-        }
     }
 }
