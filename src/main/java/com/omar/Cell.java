@@ -8,6 +8,10 @@ public class Cell {
         state = Status.UNCOVERED;
     }
 
+    public void flag() {
+        state = Status.FLAGGED;
+    }
+
     public Status getState() {
         return state;
     }
