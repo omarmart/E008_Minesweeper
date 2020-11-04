@@ -26,6 +26,27 @@ public class Board {
         }
     }
 
+    /**
+    * Gets the number of mined cells surrounding the given position
+    * @return the number of mined cells surrounding the given position
+    */
+    private short getSurroundingMines(int cooX, int cooY) {
+        short minedCells = 0;
+
+        for (int x = -1; x <= 1; x++) {
+            for (int y = -1; y <= 1; y++) {
+                if (cooX + x < 0 || cooY + y < 0 || cooX + x >= width || cooY + y >= height || x == 0 && y == 0) {
+                    continue;
+                }
+                if (field[cooX + x][cooY + y].isMined()) {
+                    minedCells++;
+                }
+            }
+        }
+
+        return minedCells;
+    }
+
     public int getWidth() {
         return this.width;
     }
