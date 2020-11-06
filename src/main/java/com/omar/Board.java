@@ -55,7 +55,7 @@ public class Board {
         return this.height;
     }
 
-    public void clickCell(int x, int y, Cell c) {
+    public void clickCell(int x, int y) {
         this.field[x][y].click();
     }
 
