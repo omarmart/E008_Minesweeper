@@ -18,4 +18,20 @@ public class Coordinates {
         return y;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Coordinates)) {
+            return false;
+        }
+
+        Coordinates position = (Coordinates) o;
+
+        return (position.getX() == this.x && position.getY() == this.y);
+    }
+
+    @Override
+    public int hashCode() {
+        return x + y << 16;
+    }
+
 }
