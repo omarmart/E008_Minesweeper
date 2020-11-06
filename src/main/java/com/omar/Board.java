@@ -69,6 +69,10 @@ public class Board {
         this.field[x][y].flag();
     }
 
+    public void mineCell(int x, int y) {
+        this.field[x][y].setMined(true);
+    }
+
     public Cell getCell(int x, int y) {
         return this.field[x][y];
     }
