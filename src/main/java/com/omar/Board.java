@@ -15,11 +15,7 @@ public class Board {
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
                 Coordinates position = new Coordinates(x, y);
-                if (minedPositions.contains(position)) {
-                    field[x][y] = new Cell(true);
-                } else {
-                    field[x][y] = new Cell(false);
-                }
+                field[x][y] = new Cell(minedPositions.contains(position));
             }
         }
     }
