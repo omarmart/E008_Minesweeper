@@ -2,7 +2,11 @@ package com.omar;
 
 public class Cell {
     private Status state = Status.COVERED;
-    private boolean mined = false;
+    private boolean mined;
+
+    public Cell(boolean mined) {
+        this.mined = mined;
+    }
 
     public void click() {
         state = Status.UNCOVERED;
@@ -23,4 +27,5 @@ public class Cell {
     public void setMined(boolean mined) {
         this.mined = mined;
     }
+
 }
