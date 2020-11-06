@@ -1,34 +1,26 @@
 package com.omar;
 
-import java.util.Random;
+import java.util.Set;
 
 public class Board {
     private final int width;
     private final int height;
     private final Cell field[][];
 
-    public Board(int width, int height, int mines) {
+    public Board(int width, int height, Set<Coordinates> minedPositions) {
         this.width = width;
         this.height = height;
         this.field = new Cell[width][height];
 
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
-                field[x][y] = new Cell();
+                Coordinates position = new Coordinates(x, y);
+                if (minedPositions.contains(position)) {
+                    field[x][y] = new Cell(true);
+                } else {
+                    field[x][y] = new Cell(false);
+                }
             }
-        }
-    }
-
-    /**
-     * Fills the board with the specified number of mines in random positions
-     * @param mines the number of mines that the board will contain
-     */
-    private void setMines(int mines) {
-        Random random = new Random();
-        for (int i = 0; i < mines; i++) {
-            int x = random.nextInt(width);
-            int y = random.nextInt(height);
-            field[x][y].setMined(true);
         }
     }
 
