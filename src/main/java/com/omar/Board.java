@@ -11,6 +11,12 @@ public class Board {
         this.width = width;
         this.height = height;
         this.field = new Cell[width][height];
+
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
+                field[x][y] = new Cell();
+            }
+        }
     }
 
     /**
