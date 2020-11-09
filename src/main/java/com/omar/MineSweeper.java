@@ -19,7 +19,6 @@ public class MineSweeper {
             System.out.println("There can't be more mines than cells on the board");
             return;
         }
-        //TODO mines == 0 --> sysout
 
         Set<Coordinates> coordinates = calcRandomCoordinates(width, heigth, mines);
 
@@ -50,6 +49,11 @@ public class MineSweeper {
 
         return coordinates;
 
+    }
+
+    private Coordinates getRandomCoordinate(int maxWidth, int maxHeight) {
+        Random random = new Random();
+        return new Coordinates(random.nextInt(maxWidth), random.nextInt(maxHeight));
     }
 
     //TODO:
