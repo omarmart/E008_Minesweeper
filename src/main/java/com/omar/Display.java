@@ -4,6 +4,14 @@ public class Display {
 
     Board board;
 
+    public Display(Board board) {
+        this.board = board;
+    }
+
+    public void update(Board board) {
+        this.board = board;
+    }
+
     /**
      * Draws the board on the screen
      */
@@ -26,4 +34,5 @@ public class Display {
             }
         }
     }
+
 }
