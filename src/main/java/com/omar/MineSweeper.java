@@ -2,11 +2,13 @@ package com.omar;
 
 import java.util.HashSet;
 import java.util.Random;
+import java.util.Scanner;
 import java.util.Set;
 
 public class MineSweeper {
     private Board board;
     private Coordinates display;
+    boolean playing = true;
 
     /**
      * Creates a game with the given width, height, and mines
@@ -23,6 +25,46 @@ public class MineSweeper {
         Set<Coordinates> coordinates = calcRandomCoordinates(width, heigth, mines);
 
         this.board = new Board(width, heigth, coordinates);
+    }
+
+    //TODO Function load instructions
+    //-exit to finish the game;
+    //-command posX,posY (click, flag)
+
+    public void play() {
+        Scanner sc = new Scanner(System.in);
+        String input;
+
+        while (playing) {
+            input = sc.nextLine();
+            if (input.equals("-exit")) {
+                playing = false;
+                return;
+            }
+            parseCommand(input);
+
+            //TODO Load display and show
+        }
+    }
+
+    private void parseCommand(String input) {
+        //TODO Check input correct format
+        //TODOCheck correct coordinates
+        String command = input.split(" ")[0];
+        int posX = Integer.parseInt(input.split(" ")[0].split(",")[0]);
+        int posY = Integer.parseInt(input.split(" ")[0].split(",")[1]);
+
+        switch (command) {
+            case "-click":
+                board.clickCell(posX, posY); //TODO refactor clickCell to use Coordinates
+                if (board.getCell(posX, posY).isMined()) {
+                    playing = false;
+                }
+                break;
+            case "-flag":
+                board.flagCell(posX, posY);
+                break;
+        }
     }
 
     /**
@@ -49,7 +91,4 @@ public class MineSweeper {
         Random random = new Random();
         return new Coordinates(random.nextInt(maxWidth), random.nextInt(maxHeight));
     }
-
-    //TODO:
-    //Meter aqui el check surrounding y pasarle los numeros al display
 }
