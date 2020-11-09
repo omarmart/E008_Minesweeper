@@ -37,6 +37,9 @@ public class MineSweeper {
     public void play() {
         Scanner sc = new Scanner(System.in);
         String input;
+        Display display = new Display(board);
+
+        display.draw();
 
         while (playing) {
             input = sc.nextLine();
@@ -46,7 +49,8 @@ public class MineSweeper {
             }
             parseCommand(input);
 
-            //TODO Load display and show
+            display.update(board);
+            display.draw();
         }
     }
 
