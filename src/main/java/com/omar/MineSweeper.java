@@ -35,20 +35,14 @@ public class MineSweeper {
     private Set<Coordinates> calcRandomCoordinates(int maxWidth, int maxHeight, int total) {
         Set<Coordinates> coordinates = new HashSet<Coordinates>();
 
-        Random random = new Random();
-
         int i = 0;
         while (i < total) {
-            int x = random.nextInt(maxWidth);
-            int y = random.nextInt(maxHeight);
-
-            if (coordinates.add(new Coordinates(x, y))) {
+            if (coordinates.add(getRandomCoordinate(maxWidth, maxHeight))) {
                 i++;
             }
         }
 
         return coordinates;
-
     }
 
     private Coordinates getRandomCoordinate(int maxWidth, int maxHeight) {
