@@ -17,16 +17,16 @@ public class Display {
      */
     public void draw() {
         for (int i = 0; i < board.getWidth(); i++) {
+            System.out.print(" ");
             for (int j = 0; j < board.getHeight(); j++) {
                 switch (board.getCell(i, j).getState()) {
                     case FLAGGED:
-                        System.out.println("◘");
+                        System.out.print("◘");
                         break;
                     case COVERED:
-                        System.out.println("■");
+                        System.out.print("■");
                         break;
                     case UNCOVERED:
-                        //TODO -- Board: CalculateSurrounding
                         System.out.println("Result Surrounding");
                         break;
 
