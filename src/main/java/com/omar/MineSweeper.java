@@ -20,6 +20,9 @@ public class MineSweeper {
         if (mines > (width * heigth)) {
             System.out.println("There can't be more mines than cells on the board");
             return;
+        } else if (mines == 0) {
+            System.out.println("There can't be less than 1 mine");
+            return;
         }
 
         Set<Coordinates> coordinates = calcRandomCoordinates(width, heigth, mines);
@@ -72,7 +75,7 @@ public class MineSweeper {
     * @param maxWidth the limit of the x position
     * @param maxHeight the limit of the y position
     * @param total the number of random positions that will be returned
-    * @return
+    * @return a set of random Coordinates
     */
     private Set<Coordinates> calcRandomCoordinates(int maxWidth, int maxHeight, int total) {
         Set<Coordinates> coordinates = new HashSet<Coordinates>();
