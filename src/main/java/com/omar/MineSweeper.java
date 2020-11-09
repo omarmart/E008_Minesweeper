@@ -30,15 +30,20 @@ public class MineSweeper {
         this.board = new Board(width, heigth, coordinates);
     }
 
-    //TODO Function load instructions
-    //-exit to finish the game;
-    //-command posX,posY (click, flag)
+    public void loadInstructions() {
+        System.out.println("Commands:");
+        System.out.println("-exit to exit the game");
+        System.out.println("-click coordinateX,coordinateY to click a cell");
+        System.out.println("-flag coordinateX,coordinateY to flag a cell");
+    }
 
     public void play() {
         Scanner sc = new Scanner(System.in);
         String input;
         Display display = new Display(board);
 
+        loadInstructions();
+        System.out.println("");
         display.draw();
 
         while (playing) {
