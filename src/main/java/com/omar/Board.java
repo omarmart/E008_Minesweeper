@@ -27,7 +27,7 @@ public class Board {
      * @param cooY The y position of the cell that is going to be checked
      * @return the number of mined cells surrounding the given position
      */
-    private short getSurroundingMines(int cooX, int cooY) {
+    public short getSurroundingMines(int cooX, int cooY) {
         short minedCells = 0;
 
         for (int x = -1; x <= 1; x++) {
