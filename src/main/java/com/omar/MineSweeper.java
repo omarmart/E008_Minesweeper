@@ -61,17 +61,18 @@ public class MineSweeper {
 
     private void parseCommand(String input) {
         //TODO Check input correct format
-        //TODOCheck correct coordinates
+        //TODO Check correct coordinates
         String command = input.split(" ")[0];
         int posX = Integer.parseInt(input.split(" ")[0].split(",")[0]);
         int posY = Integer.parseInt(input.split(" ")[0].split(",")[1]);
 
         switch (command) {
             case "-click":
-                board.clickCell(posX, posY); //TODO refactor clickCell to use Coordinates
                 if (board.getCell(posX, posY).isMined()) {
                     playing = false;
+                    return;
                 }
+                board.clickCell(posX, posY); //TODO refactor clickCell to use Coordinates
                 break;
             case "-flag":
                 board.flagCell(posX, posY);
