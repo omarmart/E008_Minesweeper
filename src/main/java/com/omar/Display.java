@@ -27,7 +27,7 @@ public class Display {
                         System.out.print("■ ");
                         break;
                     case UNCOVERED:
-                        System.out.println(board.getSurroundingMines(i, j));
+                        System.out.print(board.getSurroundingMines(i, j) + " ");
                         break;
 
                 }
