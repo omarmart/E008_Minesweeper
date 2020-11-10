@@ -52,12 +52,29 @@ public class Board {
         return this.height;
     }
 
-    public void clickCell(int x, int y) {
-        this.field[x][y].click();
+    public void clickCell(int cooX, int cooY) {
+        this.field[cooX][cooY].click();
+        revealSurrounding(cooX, cooY);
+    }
+
+    private void revealSurrounding(int cooX, int cooY) {
+        for (int x = -1; x <= 1; x++) {
+            for (int y = -1; y <= 1; y++) {
+                if (cooX + x < 0 || cooY + y < 0 || cooX + x >= width || cooY + y >= height || x == 0 && y == 0) {
+                    continue;
+                }
+                if (getSurroundingMines(cooX + x, cooY + y) == 0
+                        && getCell(cooX + x, cooY + y).getState() == Status.COVERED) {
+                    clickCell(cooX + x, cooY + y);
+                }
+            }
+        }
     }
 
     public void flagCell(int x, int y) {
         this.field[x][y].flag();
+        //TODO
+        //if flagged , deflag, if uncovered, do nothing
     }
 
     public void mineCell(int x, int y) {
