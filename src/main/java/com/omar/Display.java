@@ -27,7 +27,11 @@ public class Display {
                         System.out.print("■ ");
                         break;
                     case UNCOVERED:
-                        System.out.print(board.getSurroundingMines(i, j) + " ");
+                        if (board.getCell(i, j).isMined()) {
+                            System.out.println("☼ ");
+                        } else {
+                            System.out.print(board.getSurroundingMines(i, j) + " ");
+                        }
                         break;
 
                 }
