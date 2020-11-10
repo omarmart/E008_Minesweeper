@@ -8,7 +8,7 @@ import java.util.Set;
 public class MineSweeper {
     private Board board;
     private Coordinates display;
-    boolean playing = true;
+    private boolean playing = true;
 
     /**
      * Creates a game with the given width, height, and mines
@@ -63,8 +63,8 @@ public class MineSweeper {
         //TODO Check input correct format
         //TODO Check correct coordinates
         String command = input.split(" ")[0];
-        int posX = Integer.parseInt(input.split(" ")[0].split(",")[0]);
-        int posY = Integer.parseInt(input.split(" ")[0].split(",")[1]);
+        int posX = Integer.parseInt(input.split(" ")[1].split(",")[0]);
+        int posY = Integer.parseInt(input.split(" ")[1].split(",")[1]);
 
         switch (command) {
             case "-click":
