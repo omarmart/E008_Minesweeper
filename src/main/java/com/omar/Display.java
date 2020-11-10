@@ -17,14 +17,14 @@ public class Display {
      */
     public void draw() {
         for (int i = 0; i < board.getWidth(); i++) {
-            System.out.print(" ");
+            System.out.println("");
             for (int j = 0; j < board.getHeight(); j++) {
                 switch (board.getCell(i, j).getState()) {
                     case FLAGGED:
-                        System.out.print("◘");
+                        System.out.print("◘ ");
                         break;
                     case COVERED:
-                        System.out.print("■");
+                        System.out.print("■ ");
                         break;
                     case UNCOVERED:
                         System.out.println(board.getSurroundingMines(i, j));
@@ -33,6 +33,8 @@ public class Display {
                 }
             }
         }
+
+        System.out.println("");
     }
 
 }
