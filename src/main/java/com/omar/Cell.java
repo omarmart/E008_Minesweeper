@@ -13,7 +13,12 @@ public class Cell {
     }
 
     public void flag() {
-        state = Status.FLAGGED;
+        if (state == Status.FLAGGED) {
+            state = Status.COVERED;
+        } else if (state == Status.COVERED) {
+            state = Status.FLAGGED;
+        }
+
     }
 
     public Status getState() {
